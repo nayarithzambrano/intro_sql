@@ -1,33 +1,30 @@
 
+# consultas_1_sql
+ # introducción a las consultas a una BD usando el lenguaje SQL
 
-# INTRODUCCION A SQL
+## Base de datos: Ventas
+## Tabla: Cliente
 
-1. Creacion de una base datos (BD) con MySQL usando phpMyAdmin
+![Tabla Cliente](tabla_clientes.png)
 
-## Creacion tabla cliente
+## Instrucciones SELECT
+- Permite seleccionar datos de una tabla.
+- Su formato es: `SELECT campos_tablas FROM
+nombre_tabla``
 
-### Diccionario de datos
+### Consultas No. 1
+1. Para visualizar toda la informacion que contiene la tabla Cliente se puede incluir con la instruccion SELECT el caracter **\*** o cada uno de los campos de la tabla.
 
-| Campo                | Tipo de dato | Longitud |
-| -------------------- | ------------ | -------- |
-| **_identificacion_** | varchar      | 15       |
-| nombre               | varchar      | 20       |
-| apellidos            | varchar      | 20       |
-| direccion            | varchar      | 25       |
-| telefono             | varchar      | 20       |
-| ciudad_nac           | varchar      | 20       |
-| fecha_nac            | date         |          |
+- `SELECT * FROM Cliente`
+![consulta2](consulta1.png)
+- `SELECT identificacion, nombre, apellidos, direccion, telefono,ciudad_nac, fecha_nac FROM Cliente`
+![consulta2](consulta1_2.png)
+
+### Consultas No. 2
+2. para  visualizar solamente la identificacion del cliente: `SELECT identificacion FROM cliente`
+![consulta2](consulta2.png)
 
 
-### Codigo SQL de creacion de la tabla Ventas
-
-CREATE TABLE `Ventas`.`Cliente` (`identificacion` VARCHAR(15) NOT NULL , `nombre` VARCHAR(20) NOT NULL , `apellidos` VARCHAR(20) NOT NULL , `direccion` VARCHAR(25) NOT NULL , `telefono` VARCHAR(25) NOT NULL , `ciudad_nac` VARCHAR(20) NOT NULL , `fecha_nac` DATE NOT NULL , PRIMARY KEY (`identificacion`)) ENGINE = InnoDB;
-
-### Diccionario de datos en phpMyAdmin
-![Diccionario de datos](diccionario.png)
-
-### Registro de Datos en tabla cliente 
-
-INSERT INTO `Cliente` (`identificacion`, `nombre`, `apellidos`, `direccion`, `telefono`, `ciudad_nac`, `fecha_nac`) VALUES ('100', 'Nayarith', 'Zambrano Gomez ', 'vereda guarigua alto, '3204866630', 'San gil', '2006-12-30');
-
-![registro de datos](registrar.png)
+### Consultas No. 3
+3. Si se desea obtener los registros cuya identificacion sea mayor o igual a 150, se debe utilizar la clausula `WHERE` que especifica las condiciones que deben reunir los registros que se van a seleccionar: `SELECT * FROM cliente WHERE identificacion>=150`
+![consulta3](consultas3.png)
